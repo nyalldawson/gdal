@@ -59,7 +59,7 @@ OGRDataSource *OGRODBCDriver::Open( const char * pszFilename,
 
 {
     if( !STARTS_WITH_CI(pszFilename, "ODBC:")
-        && !EQUAL(CPLGetExtension(pszFilename), "MDB")
+        && !(EQUAL(CPLGetExtension(pszFilename), "MDB") || EQUAL(CPLGetExtension(pszFilename), "ACCDB") || EQUAL(CPLGetExtension(pszFilename), "STYLE") )
         )
         return nullptr;
 
